@@ -32,226 +32,58 @@ void iniciaCampo()
 
 void logo()
 {
-  for(int i = 0; i<= MAXCIMA; i++)
+  int k = -1;
+  string linha1 = "SNAKE GAME BY MARCOS ANDRE AND JOAO TADINI";
+
+  for(int i =  meioY - 10; i <= MAXCIMA - 1 ; i++)
   {
-    for(int j = 0; j<= MAXLADO; j++)
+    for(int j = meioX - 10;  j <=  MAXLADO - 1 ; j++)
     {
-    if (i == meioY - 2 && j == meioX - 4)
-    {
-      campo[i][j] = 'S';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY - 2 && j == meioX - 3)
-    {
-      campo[i][j] = 'N';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY - 2 && j == meioX - 2)
-    {
-      campo[i][j] = 'A';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY - 2 && j == meioX - 1)
-    {
-    campo[i][j] = 'K';
-    Sleep(TEMPO);
-    iniciaCampo();
-    }
-    if (i == meioY - 2 && j == meioX)
-    {
-    campo[i][j] = 'E';
-    Sleep(TEMPO);
-    iniciaCampo();
-    }
-    if (i == meioY - 2 && j == meioX + 2)
-    {
-      campo[i][j] = 'G';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY - 2 && j == meioX + 3)
-    {
-      campo[i][j] = 'A';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY - 2 && j == meioX + 4)
-    {
-    campo[i][j] = 'M';
-    Sleep(TEMPO);
-    iniciaCampo();
-    }
-    if (i == meioY - 2 && j == meioX + 5)
-    {
-    campo[i][j] = 'E';
-    Sleep(TEMPO);
-    iniciaCampo();
-    }
-    if (i == meioY -1 && j == meioX)
-    {
-    campo[i][j] = 'B';
-    Sleep(TEMPO);
-    iniciaCampo();
-    }
-    if (i == meioY -1 && j == meioX + 1)
-    {
-      campo[i][j] = 'Y';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY && j == meioX - 5)
-    {
-      campo[i][j] = 'M';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY && j == meioX - 4)
-    {
-      campo[i][j] = 'A';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY && j == meioX - 3)
-    {
-      campo[i][j] = 'R';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY && j == meioX - 2)
-    {
-      campo[i][j] = 'C';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY && j == meioX - 1)
-    {
-      campo[i][j] = 'O';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY && j == meioX)
-    {
-      campo[i][j] = 'S';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY && j == meioX + 1)
-    {
-      campo[i][j] = ' ';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY && j == meioX + 2)
-    {
-      campo[i][j] = 'A';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY && j == meioX + 3)
-    {
-      campo[i][j] = 'N';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY && j == meioX + 4)
-    {
-      campo[i][j] = 'D';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY && j == meioX + 5)
-    {
-      campo[i][j] = 'R';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY && j == meioX + 6)
-    {
-      campo[i][j] = 'E';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 1 && j == meioX)
-    {
-      campo[i][j] = 'A';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 1 && j == meioX + 1)
-    {
-      campo[i][j] = 'N';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 1 && j == meioX + 2 )
-    {
-      campo[i][j] = 'D';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 2 && j == meioX - 4 )
-    {
-      campo[i][j] = 'J';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 2 && j == meioX - 3 )
-    {
-      campo[i][j] = 'O';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 2 && j == meioX - 2 )
-    {
-      campo[i][j] = 'A';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 2 && j == meioX - 1 )
-    {
-      campo[i][j] = 'O';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 2 && j == meioX + 1)
-    {
-      campo[i][j] = 'T';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 2 && j == meioX + 2 )
-    {
-      campo[i][j] = 'A';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 2 && j == meioX + 3 )
-    {
-      campo[i][j] = 'D';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 2 && j == meioX + 4 )
-    {
-      campo[i][j] = 'I';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 2 && j == meioX + 5 )
-    {
-      campo[i][j] = 'N';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    if (i == meioY + 2 && j == meioX + 6 )
-    {
-      campo[i][j] = 'I';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
+      if (i == meioY- 2 && j <= meioX +5 && j >= meioX - 4)
+      {
+
+        k++;
+        campo[i][j] = linha1[k];
+        Sleep(TEMPO);
+        iniciaCampo();
+
+      }
+      else if (i == meioY - 1 && j<= meioX + 2 && j >= meioX)
+      {
+
+        k++;
+        campo[i][j] = linha1[k];
+        Sleep(TEMPO);
+        iniciaCampo();
+
+      }
+      else if (i == meioY && j<= meioX + 7 && j >= meioX - 5)
+      {
+
+        k++;
+        campo[i][j] = linha1[k];
+        Sleep(TEMPO);
+        iniciaCampo();
+
+      }
+      else if (i == meioY + 1 && j<= meioX + 3 && j >= meioX)
+      {
+
+        k++;
+        campo[i][j] = linha1[k];
+        Sleep(TEMPO);
+        iniciaCampo();
+
+      }
+      else if (i == meioY + 2 && j<= meioX + 7 && j >= meioX - 4)
+      {
+
+        k++;
+        campo[i][j] = linha1[k];
+        Sleep(TEMPO);
+        iniciaCampo();
+
+      }
     }
   }
 }
@@ -262,31 +94,31 @@ void apaga()
   {
     for(int j = MAXLADO - 1 ;  j >= meioX - 6; j--)
     {
-      if(i == meioY - 2 && j >= meioX - 4 && j <= meioX + 5)
+      if(i == meioY - 2 && j >= meioX - 4 && j <= meioX + 6)
       {
        campo[i][j] = ' ';
        Sleep(TEMPO);
        iniciaCampo();
      }
-     if(i == meioY - 1 && j >= meioX && j <= meioX + 1)
+    else if(i == meioY - 1 && j >= meioX && j <= meioX + 2)
      {
       campo[i][j] = ' ';
       Sleep(TEMPO);
       iniciaCampo();
     }
-    if(i == meioY && j >= meioX - 6 && j <= meioX + 6)
+    else if(i == meioY && j >= meioX - 6 && j <= meioX + 7)
     {
      campo[i][j] = ' ';
      Sleep(TEMPO);
      iniciaCampo();
     }
-    if(i == meioY + 1 && j >= meioX && j <= meioX + 2)
+    else if(i == meioY + 1 && j >= meioX && j <= meioX + 3)
     {
       campo[i][j] = ' ';
       Sleep(TEMPO);
       iniciaCampo();
     }
-    if(i == meioY + 2 && j >= meioX - 4 && j <= meioX + 6)
+    else if(i == meioY + 2 && j >= meioX - 4 && j <= meioX + 7)
     {
       campo[i][j] = ' ';
       Sleep(TEMPO);

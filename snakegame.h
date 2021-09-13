@@ -1,6 +1,7 @@
 #include <iostream>
 #include <windows.h>
 #include <iomanip>
+#include <string.h>
 
 #define MAXLADO 50
 #define MAXCIMA 20
@@ -12,3 +13,9 @@
 #define TEMPO 50
 
 using namespace std;
+
+
+/*
+  cd /d D:\UNIFEI\GitHub\SnakeGame
+  g++ main.cpp -o main.exe
+*/
