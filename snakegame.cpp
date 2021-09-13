@@ -9,7 +9,8 @@
 #define cobra 254
 #define meioX 25
 #define meioY 10
-#define TEMPO 100
+#define TEMPO 50
+
 using namespace std;
 
 char campo[MAXCIMA][MAXLADO];
@@ -270,9 +271,11 @@ void logo()
 
 void apaga()
 {
-  for(int i = meioY - 2; i<= MAXCIMA - 1; i++)
+  int i = MAXCIMA - 1;
+  int j = MAXLADO - 1;
+  for(i = MAXCIMA - 1; i >= meioY - 2 ; i--)
   {
-    for(int j = meioX - 6; j<= MAXLADO - 1 ; j++)
+    for(j = MAXLADO - 1 ;  j >= meioX - 6; j--)
     {
       if(i == meioY - 2 && j >= meioX - 4 && j <= meioX + 5)
       {
@@ -309,12 +312,11 @@ void apaga()
   }
 }
 
-
 int main()
 {
   gera();
   logo();
   iniciaCampo();
-  Sleep(TEMPO);
+  Sleep(500);
   apaga();
 }
