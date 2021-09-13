@@ -1,17 +1,4 @@
-#include <iostream>
-#include <windows.h>
-#include <iomanip>
-
-#define MAXLADO 50
-#define MAXCIMA 20
-
-#define muros 219
-#define cobra 254
-#define meioX 25
-#define meioY 10
-#define TEMPO 50
-
-using namespace std;
+#include "snakegame.h"
 
 char campo[MAXCIMA][MAXLADO];
 
@@ -312,14 +299,5 @@ void apaga()
 
 void menu()
 {
-  
-}
 
-int main()
-{
-  gera();
-  logo();
-  iniciaCampo();
-  Sleep(500);
-  apaga();
 }
