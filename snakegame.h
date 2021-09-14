@@ -11,7 +11,7 @@
 #define meioX 25
 #define meioY 10
 #define TEMPO 50
-
+#define tcursor 500
 using namespace std;
 
 

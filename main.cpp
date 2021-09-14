@@ -7,6 +7,8 @@ int main()
   logo();
   Sleep(500);
   apaga();
-  menu();
+  IniciaMenu();
   Sleep(500);
+  menu();
+  escolha();
 }

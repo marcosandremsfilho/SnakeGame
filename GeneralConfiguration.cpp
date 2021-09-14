@@ -1,6 +1,7 @@
 #include "snakegame.h"
 
 char campo[MAXCIMA][MAXLADO];
+int cursor = 0;
 
 void gera()
 {
@@ -124,7 +125,7 @@ void apaga()
   }
 }
 
-void menu()
+void IniciaMenu()
 {
   int k = -1;
   string frase1 = " - MENU: - ";
@@ -135,14 +136,14 @@ void menu()
   {
     for(int j = meioX - 10;  j <=  MAXLADO - 2 ; j++)
     {
-      if (i == meioY - 5 && j <= meioX + 5 && j >= meioX - 5)
+      if (i == meioY - 5 && j <= meioX + 4 && j >= meioX - 5)
       {
 
         k++;
         campo[i][j] = frase1[k];
         Sleep(TEMPO);
         iniciaCampo();
-        if( j == meioX + 5) k = 0;
+        if( j == meioX + 4) k = 0;
       }
 
       if (i == meioY && j <= meioX + 2 && j >= meioX - 2)
@@ -179,4 +180,89 @@ void menu()
       }
     }
   }
+}
+
+void menu()
+{
+  int k = -1;
+  string frase1 = " - MENU: - ";
+  string start = " START ";
+  string options = " OPTIONS ";
+  string credits = " CREDITS ";
+  for(int i =  meioY - 10; i <= MAXCIMA - 1 ; i++)
+  {
+    for(int j = meioX - 10;  j <=  MAXLADO - 2 ; j++)
+    {
+      if (i == meioY - 5 && j <= meioX + 4 && j >= meioX - 5)
+      {
+
+        k++;
+        campo[i][j] = frase1[k];
+        if( j == meioX + 4) k = 0;
+      }
+
+      else if (i == meioY && j <= meioX + 2 && j >= meioX - 2)
+      {
+
+        k++;
+        campo[i][j] = start[k];
+        if( j == meioX + 2) k = 0;
+
+      }
+
+      else if (i == meioY + 2 && j <= meioX + 3 && j >= meioX - 3)
+      {
+
+        k++;
+        campo[i][j] = options[k];
+        if( j == meioX + 3) k = 0;
+
+      }
+
+      else if (i == meioY + 4 && j <= meioX + 3 && j >= meioX - 3)
+      {
+
+        k++;
+        campo[i][j] = credits[k];
+        if( j == meioX + 3) k = 0;
+
+      }
+    }
+  }
+  iniciaCampo();
+}
+
+void escolha()
+{
+  int k;
+  campo[meioY][meioX - 4] = '>';
+  menu();
+  do
+  {
+    cin >> k;
+    switch (k) {
+      case 1:
+      campo[meioY][meioX - 4] = '>';
+      campo[meioY + 4][meioX - 5] = ' ';
+      campo[meioY + 2][meioX - 5] = ' ';
+      menu();
+        break;
+      case 2:
+        campo[meioY][meioX - 4] = ' ';
+        campo[meioY + 4][meioX - 5] = ' ';
+        campo[meioY + 2][meioX - 5] = '>';
+        menu();
+        break;
+      case 3:
+
+      campo[meioY][meioX - 4] = ' ';
+      campo[meioY + 4][meioX - 5] = '>';
+      campo[meioY + 2][meioX - 5] = ' ';
+        menu();
+        break;
+
+    }
+
+
+  }while(k != 32);
 }
