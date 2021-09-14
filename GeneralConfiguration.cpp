@@ -96,36 +96,35 @@ void apaga()
     {
       if(i == meioY - 2 && j >= meioX - 4 && j <= meioX + 6)
       {
-       campo[i][j] = ' ';
-       Sleep(TEMPO);
-       iniciaCampo();
-     }
-    else if(i == meioY - 1 && j >= meioX && j <= meioX + 2)
-     {
-      campo[i][j] = ' ';
-      Sleep(TEMPO);
-      iniciaCampo();
+        campo[i][j] = ' ';
+        Sleep(TEMPO);
+        iniciaCampo();
+      }
+      else if(i == meioY - 1 && j >= meioX && j <= meioX + 2)
+      {
+        campo[i][j] = ' ';
+        Sleep(TEMPO);
+        iniciaCampo();
+      }
+      else if(i == meioY && j >= meioX - 6 && j <= meioX + 7)
+      {
+        campo[i][j] = ' ';
+        Sleep(TEMPO);
+        iniciaCampo();
+      }
+      else if(i == meioY + 1 && j >= meioX && j <= meioX + 3)
+      {
+        campo[i][j] = ' ';
+        Sleep(TEMPO);
+        iniciaCampo();
+      }
+      else if(i == meioY + 2 && j >= meioX - 4 && j <= meioX + 7)
+      {
+        campo[i][j] = ' ';
+        Sleep(TEMPO);
+        iniciaCampo();
+      }
     }
-    else if(i == meioY && j >= meioX - 6 && j <= meioX + 7)
-    {
-     campo[i][j] = ' ';
-     Sleep(TEMPO);
-     iniciaCampo();
-    }
-    else if(i == meioY + 1 && j >= meioX && j <= meioX + 3)
-    {
-      campo[i][j] = ' ';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-    else if(i == meioY + 2 && j >= meioX - 4 && j <= meioX + 7)
-    {
-      campo[i][j] = ' ';
-      Sleep(TEMPO);
-      iniciaCampo();
-    }
-  }
-
   }
 }
 

@@ -1,5 +1,5 @@
 #include "snakegame.h"
-#include "snakegame.cpp"
+#include "GeneralConfiguration.cpp"
 
 int main()
 {
