@@ -7,4 +7,6 @@ int main()
   logo();
   Sleep(500);
   apaga();
+  menu();
+  Sleep(500);
 }

@@ -90,6 +90,7 @@ void logo()
 
 void apaga()
 {
+  int TEMPO2 = TEMPO - 45;
   for(int i = MAXCIMA - 1; i >= meioY - 2 ; i--)
   {
     for(int j = MAXLADO - 1 ;  j >= meioX - 6; j--)
@@ -97,31 +98,26 @@ void apaga()
       if(i == meioY - 2 && j >= meioX - 4 && j <= meioX + 6)
       {
         campo[i][j] = ' ';
-        Sleep(TEMPO);
         iniciaCampo();
       }
       else if(i == meioY - 1 && j >= meioX && j <= meioX + 2)
       {
         campo[i][j] = ' ';
-        Sleep(TEMPO);
         iniciaCampo();
       }
       else if(i == meioY && j >= meioX - 6 && j <= meioX + 7)
       {
         campo[i][j] = ' ';
-        Sleep(TEMPO);
         iniciaCampo();
       }
       else if(i == meioY + 1 && j >= meioX && j <= meioX + 3)
       {
         campo[i][j] = ' ';
-        Sleep(TEMPO);
         iniciaCampo();
       }
       else if(i == meioY + 2 && j >= meioX - 4 && j <= meioX + 7)
       {
         campo[i][j] = ' ';
-        Sleep(TEMPO);
         iniciaCampo();
       }
     }
@@ -130,5 +126,57 @@ void apaga()
 
 void menu()
 {
+  int k = -1;
+  string frase1 = " - MENU: - ";
+  string start = " START ";
+  string options = " OPTIONS ";
+  string credits = " CREDITS ";
+  for(int i =  meioY - 10; i <= MAXCIMA - 1 ; i++)
+  {
+    for(int j = meioX - 10;  j <=  MAXLADO - 2 ; j++)
+    {
+      if (i == meioY - 5 && j <= meioX + 5 && j >= meioX - 5)
+      {
 
+        k++;
+        campo[i][j] = frase1[k];
+        Sleep(TEMPO);
+        iniciaCampo();
+        if( j == meioX + 5) k = 0;
+      }
+
+      if (i == meioY && j <= meioX + 2 && j >= meioX - 2)
+      {
+
+        k++;
+        campo[i][j] = start[k];
+        Sleep(TEMPO);
+        iniciaCampo();
+        if( j == meioX + 2) k = 0;
+
+      }
+
+      if (i == meioY + 2 && j <= meioX + 3 && j >= meioX - 3)
+      {
+
+        k++;
+        campo[i][j] = options[k];
+        Sleep(TEMPO);
+        iniciaCampo();
+        if( j == meioX + 3) k = 0;
+
+      }
+
+      if (i == meioY + 4 && j <= meioX + 3 && j >= meioX - 3)
+      {
+
+        k++;
+        campo[i][j] = credits[k];
+        Sleep(TEMPO);
+        iniciaCampo();
+        if( j == meioX + 3) k = 0;
+
+      }
+    }
+  }
 }
