@@ -1,4 +1,5 @@
 #include "snakegame.h"
+#include "game.cpp"
 
 char campo[MAXCIMA][MAXLADO];
 int cursor = 0;
