@@ -4,9 +4,7 @@
 int main()
 {
   gera();
-  logo();
-  Sleep(500);
-  apaga();
+  credits();
   IniciaMenu();
   Sleep(500);
   menu();
