@@ -270,7 +270,13 @@ void escolha()
         if(aux == 4) aux = 1;
       }
 
-        break;
+      else if(k == 'q')
+      {
+        cout << "Really want to quit?\n Y - Yes N - no \n";
+        k = getch();
+        if(k == 'y') aux = 4;
+        else if (k == 'n') break;
+      }
 
       case 2:
         campo[meioY][meioX - 4] = ' ';
@@ -289,8 +295,13 @@ void escolha()
           aux ++;
           if(aux == 4) aux = 1;
         }
-        break;
-
+        else if(k == 'q')
+        {
+          cout << "Really want to quit?\n Y - Yes N - no \n";
+          k = getch();
+          if(k == 'y') aux = 4;
+          else if (k == 'n') break;
+        }
       case 3:
 
       campo[meioY][meioX - 4] = ' ';
@@ -309,9 +320,14 @@ void escolha()
           aux ++;
           if(aux == 4) aux = 1;
         }
+        else if(k == 'q')
+        {
+          cout << "Really want to quit?\n Y - Yes N - no \n";
+          k = getch();
+          if(k == 'y') aux = 4;
+          else if (k == 'n') break;
+        }
         else if(k == '\n') credits();
-
-        break;
 
     }
 
