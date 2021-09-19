@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <iomanip>
 #include <string.h>
+#include <conio.h>
 
 #define MAXLADO 50
 #define MAXCIMA 20

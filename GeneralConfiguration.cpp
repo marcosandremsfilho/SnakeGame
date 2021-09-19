@@ -257,7 +257,7 @@ void escolha()
       campo[meioY + 2][meioX - 5] = ' ';
       menu();
 
-      cin >> k;
+      k = getch();
       if(k == 'w')
       {
         aux--;
@@ -277,7 +277,7 @@ void escolha()
         campo[meioY + 4][meioX - 5] = ' ';
         campo[meioY + 2][meioX - 5] = '>';
         menu();
-        cin >> k;
+        k = getch();
         if(k == 'w')
         {
           aux--;
@@ -297,7 +297,7 @@ void escolha()
       campo[meioY + 4][meioX - 5] = '>';
       campo[meioY + 2][meioX - 5] = ' ';
         menu();
-        cin >> k;
+        k = getch();
         if(k == 'w')
         {
           aux--;
@@ -309,7 +309,8 @@ void escolha()
           aux ++;
           if(aux == 4) aux = 1;
         }
-        else if(k == getchar()) credits();
+        else if(k == '\n') credits();
+
         break;
 
     }

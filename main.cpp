@@ -4,9 +4,9 @@
 int main()
 {
   gera();
-  credits();
-  IniciaMenu();
-  Sleep(500);
+  //credits();
+//  IniciaMenu();
+//  Sleep(500);
   menu();
   escolha();
 }
