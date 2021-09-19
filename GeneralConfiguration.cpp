@@ -1,5 +1,5 @@
 #include "snakegame.h"
-#include "game.cpp"
+// #include "game.cpp"
 
 char campo[MAXCIMA][MAXLADO];
 int cursor = 0;
@@ -262,7 +262,7 @@ void escolha()
       if(k == 'w')
       {
         aux--;
-        if(aux == 0) aux = 3;
+        if(aux == 0) aux = 2;
 
       }
       else if(k == 's')
