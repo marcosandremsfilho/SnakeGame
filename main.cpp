@@ -1,6 +1,6 @@
 #include "snakegame.h"
 #include "GeneralConfiguration.cpp"
-
+#include "game.cpp"
 int main()
 {
   gera();
