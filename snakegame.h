@@ -11,10 +11,11 @@
 #define cobra 254
 #define meioX 25
 #define meioY 10
-#define TEMPO 50
+#define TEMPO_INITIAL_MENU 50
+#define TEMPO_MENU 25
 #define tcursor 500
-using namespace std;
 
+using namespace std;
 
 /*
   cd /d D:\UNIFEI\GitHub\SnakeGame
