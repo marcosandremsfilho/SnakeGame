@@ -1,214 +1,107 @@
   #include "snakegame.h"
-  // #include "game.cpp"
-  enum BINDING {W, A, S, D, ENTER};
-  char campo[MAXCIMA][MAXLADO];
+
+  char campo[VERTICAL_MAX][HORIZONTAL_MAX];
   int cursor = 0;
 
-  void gera()
-  {
-    for(int i = 0; i<= MAXCIMA; i++)
-    {
-      for(int j = 0; j<= MAXLADO; j++)
-      {
-        campo[i][j] = ' ';
-        if(j == 0 || j == MAXLADO) campo[i][j] = muros;
-        else if(i == 0 || i == MAXCIMA ) campo[i][j] = muros;
+  void empty_area(){
+    for(int row = 0; row<= VERTICAL_MAX; row++){
+      for(int column = 0; column<= HORIZONTAL_MAX; column++){
+        campo[row][column] = ' ';
+        if(column == 0 || column == HORIZONTAL_MAX) campo[row][column] = WALL;
+        else if(row == 0 || row == VERTICAL_MAX ) campo[row][column] = WALL;
       }
     }
   }
 
-  void iniciaCampo()
-  {
+  void insert_str_in_area(int x_coordenate, int y_coordenate, string add_char){
+    int str_pos = 0;
+    for (int row = x_coordenate; row < x_coordenate + add_char.length() - 1; row++){
+      campo[y_coordenate][row] = add_char[str_pos];
+      str_pos++;
+    }
+  }
+
+  void print_game_area(){
     system("cls");
-    for(int i = 0; i<= MAXCIMA; i++)
-    {
-      for(int j = 0; j<= MAXLADO; j++)
-      {
-      cout << campo[i][j];
-      if (j == MAXLADO) cout << "\n";
+    for(int row = 0; row<= VERTICAL_MAX; row++){
+      for(int column = 0; column<= HORIZONTAL_MAX; column++){
+        cout << campo[row][column];
+        if (column == HORIZONTAL_MAX) cout << "\n";
       }
     }
   }
 
-  void logo()
-  {
-    int k = -1;
-    string linha1 = "SNAKE GAME BY MARCOS ANDRE";
+  void insert_char_in_area(int x_coordenate, int y_coordenate, char add_char){
+    campo[y_coordenate][x_coordenate] = add_char;
+    print_game_area();
+  }
 
-    for(int i =  meioY - 10; i <= MAXCIMA - 1 ; i++){
-      for(int j = meioX - 10;  j <=  MAXLADO - 1 ; j++){
-        if (i == meioY- 2 && j <= meioX +5 && j >= meioX - 4) {
-          k++;
-          campo[i][j] = linha1[k];
-          Sleep(TEMPO_INITIAL_MENU);
-          iniciaCampo();
-        } else if (i == meioY - 1 && j<= meioX + 1 && j >= meioX - 1) {
-          k++;
-          campo[i][j] = linha1[k];
-          Sleep(TEMPO_INITIAL_MENU);
-          iniciaCampo();
-        } else if (i == meioY && j<= meioX + 6 && j >= meioX - 6) {
-          k++;
-          campo[i][j] = linha1[k];
-          Sleep(TEMPO_INITIAL_MENU);
-          iniciaCampo();
-        }
+  void write_str_char_by_char(int x_coordinate, int y_coordinate, string add_str, int sleep_time){
+    int count_str_char = 0;
+    for(int column = x_coordinate;  column < x_coordinate + add_str.length(); column++){
+      if (add_str[count_str_char] == '|'){
+        y_coordinate++;
+        count_str_char++;
       }
+      insert_char_in_area(column, y_coordinate, add_str[count_str_char]);
+      Sleep(sleep_time);
+      count_str_char++;
     }
   }
 
-  void apaga()
-  {
-    for(int i = MAXCIMA - 1; i >= meioY - 2 ; i--)  {
-      for(int j = MAXLADO - 1 ;  j >= meioX - 6; j--)    {
-        if(i == meioY - 2 && j >= meioX - 4 && j <= meioX + 5){
-          campo[i][j] = ' ';
-          iniciaCampo();
-        } else if(i == meioY - 1 && j >= meioX && j <= meioX + 2){
-          campo[i][j] = ' ';
-          iniciaCampo();
-        } else if(i == meioY && j >= meioX - 6 && j <= meioX + 7){
-          campo[i][j] = ' ';
-          iniciaCampo();
-        }
-      }
-    }
+  void create_credits(){
+    string credit_str = "SNAKE GAME|BY|MARCOS ANDRE ";
+    write_str_char_by_char(15, 8, credit_str, TEMPO_INITIAL_MENU);
   }
+  
+  void create_menu(){
+    empty_area();
 
-  void IniciaMenu(){
-    int k = -1;
-    string frase1 = " - MENU - ";
-    string start = " START ";
-    string options = " OPTIONS ";
-    string credits = " CREDITS ";
-    for(int i =  meioY - 10; i <= MAXCIMA - 1 ; i++){
-      for(int j = meioX - 10;  j <=  MAXLADO - 2 ; j++){
-        if (i == meioY - 5 && j <= meioX + 4 && j >= meioX - 4){
-          k++;
-          campo[i][j] = frase1[k];
-          Sleep(TEMPO_MENU);
-          iniciaCampo();
-          if( j == meioX + 4) k = 0;
-        }
-        if (i == meioY && j <= meioX + 2 && j >= meioX - 2){
-          k++;
-          campo[i][j] = start[k];
-          Sleep(TEMPO_MENU);
-          iniciaCampo();
-          if( j == meioX + 2) k = 0;
-        }
-        if (i == meioY + 2 && j <= meioX + 3 && j >= meioX - 3){
-          k++;
-          campo[i][j] = options[k];
-          Sleep(TEMPO_MENU);
-          iniciaCampo();
-          if( j == meioX + 3) k = 0;
-        }
+    vector<int> menu_coordinate = {22, 5};
+    vector<int> start_coordinate = {23, 10};
+    vector<int> options_coordinate = {22, 12};
+    vector<int> credits_coordinate = {22, 14};
+    vector<int> quit_coordinate = {23, 16};
 
-        if (i == meioY + 4 && j <= meioX + 3 && j >= meioX - 3){
-          k++;
-          campo[i][j] = credits[k];
-          Sleep(TEMPO_MENU);
-          iniciaCampo();
-          if( j == meioX + 3) k = 0;
-        }
-      }
-    }
-  }
+    string menu = "- MENU - ";
+    string start = "START ";
+    string options = "OPTIONS ";
+    string credits = "CREDITS ";
+    string quit = "QUIT ";
+
+    write_str_char_by_char(menu_coordinate[0], menu_coordinate[1], menu, TEMPO_INITIAL_MENU);
+    write_str_char_by_char(start_coordinate[0], start_coordinate[1], start, TEMPO_INITIAL_MENU);
+    write_str_char_by_char(options_coordinate[0], options_coordinate[1], options, TEMPO_INITIAL_MENU);
+    write_str_char_by_char(credits_coordinate[0], credits_coordinate[1], credits, TEMPO_INITIAL_MENU);
+    write_str_char_by_char(quit_coordinate[0], quit_coordinate[1], quit, TEMPO_INITIAL_MENU);
+  }  
 
   void menu(){
-    int k = -1;
-    string frase1 = " - MENU - ";
-    string start = " START ";
-    string options = " OPTIONS ";
-    string credits = " CREDITS ";
-    for(int i =  meioY - 10; i <= MAXCIMA - 1 ; i++){
-      for(int j = meioX - 10;  j <=  MAXLADO - 2 ; j++){
-        if (i == meioY - 5 && j <= meioX + 4 && j >= meioX - 4){
+    string menu = "- MENU - ";
+    string start = "START ";
+    string options = "OPTIONS ";
+    string credits = "CREDITS ";
+    string quit = "QUIT ";
+    
+    vector<int> menu_coordinate = {22, 5};
+    vector<int> start_coordinate = {23, 10};
+    vector<int> options_coordinate = {22, 12};
+    vector<int> credits_coordinate = {22, 14};
+    vector<int> quit_coordinate = {23, 16};
 
-          k++;
-          campo[i][j] = frase1[k];
-          if( j == meioX + 4) k = 0;
-        } else if (i == meioY && j <= meioX + 2 && j >= meioX - 2){
-          k++;
-          campo[i][j] = start[k];
-          if( j == meioX + 2) k = 0;
-        } else if (i == meioY + 2 && j <= meioX + 3 && j >= meioX - 3){
-          k++;
-          campo[i][j] = options[k];
-          if( j == meioX + 3) k = 0;
-        } else if (i == meioY + 4 && j <= meioX + 3 && j >= meioX - 3){
-          k++;
-          campo[i][j] = credits[k];
-          if( j == meioX + 3) k = 0;
-        }
-      }
-    }
-    iniciaCampo();
+    insert_str_in_area(menu_coordinate[0], menu_coordinate[1], menu);
+    insert_str_in_area(start_coordinate[0], start_coordinate[1], start);
+    insert_str_in_area(options_coordinate[0], options_coordinate[1], options);
+    insert_str_in_area(credits_coordinate[0], credits_coordinate[1], credits);
+    insert_str_in_area(quit_coordinate[0], quit_coordinate[1], quit);
+    print_game_area();
   }
 
   void credits(){
-    logo();
-    Sleep(500);
-    apaga();
+    empty_area();
+    create_credits();
+    Sleep(1500);
+    empty_area();
   }
 
-  void menu_pointer(int index_number){
-    if (index_number == 1){
-      campo[meioY][meioX - 4] = '>';
-      campo[meioY + 2][meioX - 6] = ' ';
-      campo[meioY + 4][meioX - 5] = ' ';
-    } else if (index_number == 2){
-      campo[meioY][meioX - 4] = ' ';
-      campo[meioY + 4][meioX - 5] = ' ';
-      campo[meioY + 2][meioX - 6] = '>';
-    } else if (index_number == 3){
-      campo[meioY][meioX - 4] = ' ';
-      campo[meioY + 2][meioX - 6] = ' ';
-      campo[meioY + 4][meioX - 5] = '>';
-    }
 
-    menu();
-  }
-
-  int get_key(){
-    char key = ' ';
-    do{
-      key = getch();
-      if (key == 119 || key == 87){
-        return W;
-      } else if(key == 115 || key == 83){
-        return S;
-      } else if(key == 97 || key == 65){
-        return A;
-      } else if(key == 100 || key == 68){
-        return D;
-      } else if (key == 13){
-        return ENTER;
-      }
-    }while(key == ' ');
-
-    return key;
-  }
-
-  int get_menu_position(int  last_pointer, int cmd_index){
-    if (last_pointer == 1 && cmd_index == S) return 2;
-    if (last_pointer == 2 && cmd_index == W) return 1;
-    if (last_pointer == 2 && cmd_index == S) return 3;
-    if (last_pointer == 3 && cmd_index == W) return 2;
-
-    if (cmd_index == ENTER) {
-      return 4;
-    }
-    return last_pointer;
-  } 
-
-  void escolha(){
-    int key;
-    int pointer = 1;
-    do{
-      menu_pointer(pointer);
-      key = get_key();
-      pointer = get_menu_position(pointer, key);
-    }while(pointer != ENTER); 
-  }
